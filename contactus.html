@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - HenryCosmetics</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar {
+        font-size: 1.2rem; /* Increase font size */
+        padding: 1rem 1.5rem; /* Increase padding */
+      }
+      .navbar-brand {
+        font-size: 1.5rem; /* Increase brand font size */
+      }
+      .contact-section {
+        padding: 40px 20px;
+        background-color: #f9f9f9;
+        margin-top: 20px; /* Added white space between navbar and contact section */
+      }
+      .hours {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+      .map-responsive {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+      }
+      .map-responsive iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+      }
+      .contact-info {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h3 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .navbar-nav .nav-link.book-now {
+        font-weight: bold;
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">HenryCosmetics</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experts.html">Experts</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="contactus.html"
+                >Contact Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link book-now" href="book.html">Book Now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container contact-section">
+      <h1>Contact Us!</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="hours">
+            <h3>Hours of Service:</h3>
+            <p>Monday: 8 AM - 5 PM</p>
+            <p>Tuesday: 8 AM - 5 PM</p>
+            <p>Wednesday: 8 AM - 5 PM</p>
+            <p>Thursday: 8 AM - 5 PM</p>
+            <p>Friday: 8 AM - 5 PM</p>
+            <p>Saturday: CLOSED</p>
+            <p>Sunday: CLOSED</p>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="map-responsive">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.4383534063534!2d-75.69719308450455!3d45.42152907910034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0508e0cf9e77%3A0xeda452f860028a0a!2s123%20Apple%20St%2C%20Ottawa%2C%20ON%20K1A%200A1%2C%20Canada!5e0!3m2!1sen!2sus!4v1592309841500!5m2!1sen!2sus"
+              frameborder="0"
+              style="border: 0"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <div class="contact-info">
+            <h3>Call or Email:</h3>
+            <p>(613) 555-1234 · henryCosmetics@hCos.ca</p>
+            <p>Address: 123 Apple Street, Ottawa, ON, Canada K1A 0A1</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
