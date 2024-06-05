@@ -10,27 +10,28 @@
     />
     <style>
       .navbar {
-        font-size: 1.2rem; /* Increase font size */
-        padding: 1rem 1.5rem; /* Increase padding */
+        font-size: 1.2rem;
+        padding: 1rem 1.5rem;
       }
       .navbar-brand {
-        font-size: 1.5rem; /* Increase brand font size */
+        font-size: 1.5rem;
       }
       .booking-form {
-        padding: 20px;
+        padding: 30px;
         background-color: #f8f9fa;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        max-width: 600px;
+        max-width: 800px;
         margin: 50px auto;
       }
       .form-control {
         margin-bottom: 20px;
+        font-size: 1.1rem;
       }
       .confirmation-popup {
         display: none;
         position: fixed;
-        bottom: 50px; /* Adjusted position to be a bit higher */
+        bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
         background-color: #fff;
@@ -121,30 +122,29 @@
             <option value="">Select the Cosmetician</option>
             <option value="Alice Wonderland">Alice - Head Cosmetologist</option>
             <option value="Bob Brown">Bob - Massage Specialist</option>
-            <option value="David Baker">David - SkinCare Specialsit</option>
+            <option value="David Baker">David - SkinCare Specialist</option>
           </select>
           <select class="form-control" name="service" required>
             <option value="">Select the Service</option>
-            <option value="SkinCare">SkinCare Treatment</option>
-            <option value="Body Treatment">Body Treatment</option>
-            <option value="Injectables">Injectables</option>
-            <option value="All Day Care">All day Care</option>
+            <option value="All Day Care">All Day Care - $348.99</option>
+            <option value="SkinCare">Skin Care - $54.99</option>
+            <option value="Body Treatment">Body Treatments - $169.99</option>
+            <option value="Injectables">Injectables - $199.99</option>
             <option value="SkinCare and Body Treatment">
-              SkinCare + Body Treatment
+              SkinCare + Body Treatment - $224.98
             </option>
             <option value="SkinCare and Injectables">
-              SkinCare + Injectables
+              SkinCare + Injectables - $254.98
             </option>
             <option value="Body Treatment and Injectables">
-              Body Treatment + Injectables
+              Body Treatment + Injectables - $369.98
             </option>
           </select>
-        </select>
-        <select class="form-control" name="HomeCare" required>
-          <option value="">Want us to come to you?</option>
-          <option value="yes">yes</option>
-          <option value="no">no</option>
-        </select>
+          <select class="form-control" name="HomeCare" required>
+            <option value="">Want us to come to you?</option>
+            <option value="yes">yes</option>
+            <option value="no">no</option>
+          </select>
           <button type="submit" class="btn btn-primary">Book Now</button>
         </form>
       </div>
@@ -160,11 +160,22 @@
         Your day of pampering and luxury is scheduled, and we are excited to
         welcome you.
       </p>
+      <p id="locationMessage"></p>
     </div>
 
     <script>
+      const servicePrices = {
+        "All Day Care": "$348.99",
+        SkinCare: "$54.99",
+        "Body Treatment": "$169.99",
+        Injectables: "$199.99",
+        "SkinCare and Body Treatment": "$224.98",
+        "SkinCare and Injectables": "$254.98",
+        "Body Treatment and Injectables": "$369.98",
+      };
+
       document.getElementById("bookingForm").onsubmit = function (event) {
-        event.preventDefault(); // Prevent form from submitting normally
+        event.preventDefault();
         if (this.checkValidity()) {
           const formData = new FormData(this);
           const params = new URLSearchParams(formData).toString();
@@ -174,17 +185,28 @@
           const time = formData.get("time");
           const cosmetician = formData.get("cosmetician");
           const service = formData.get("service");
+          const homeCare = formData.get("HomeCare");
+
+          const price = servicePrices[service];
 
           document.getElementById(
             "confirmationMessage"
-          ).innerHTML = `Your appointment for ${service} with ${cosmetician} on ${date} at ${time} is confirmed. We look forward to seeing you!`;
+          ).innerHTML = `Your appointment for ${service} (${price}) with ${cosmetician} on ${date} at ${time} is confirmed. We look forward to seeing you!`;
+
+          const locationMessage =
+            homeCare === "yes"
+              ? "We will be coming to your home for the service."
+              : "You will be coming to our salon for the service.";
+
+          document.getElementById("locationMessage").innerHTML =
+            locationMessage;
 
           const confirmationPopup =
             document.getElementById("confirmationPopup");
           confirmationPopup.style.display = "block";
           setTimeout(() => {
             confirmationPopup.style.display = "none";
-          }, 5000);
+          }, 8000);
         } else {
           this.classList.add("was-validated");
           alert("Please fill all required fields.");
