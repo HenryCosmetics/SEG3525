@@ -89,27 +89,31 @@
             type="text"
             class="form-control"
             placeholder="First Name"
+            name="firstName"
             required
           />
           <input
             type="text"
             class="form-control"
             placeholder="Last Name"
+            name="lastName"
             required
           />
           <input
             type="tel"
             class="form-control"
             placeholder="Phone Number (XXX) XXX-XXXX"
+            name="phoneNumber"
             required
           />
           <input
             type="email"
             class="form-control"
             placeholder="Email"
+            name="email"
             required
           />
-          <input type="date" class="form-control" required />
+          <input type="date" class="form-control" name="date" required />
           <select class="form-control" name="time" required>
             <option value="">Select the Time</option>
             <option value="9:00 AM">9:00 AM</option>
@@ -178,7 +182,6 @@
         event.preventDefault();
         if (this.checkValidity()) {
           const formData = new FormData(this);
-          const params = new URLSearchParams(formData).toString();
           const firstName = formData.get("firstName");
           const lastName = formData.get("lastName");
           const date = formData.get("date");
